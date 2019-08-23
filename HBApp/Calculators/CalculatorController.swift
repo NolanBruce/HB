@@ -58,19 +58,19 @@ class CalculatorController : UIViewController {
         case "ABV Calculator":
             print("'Ats right, you pressed ABV Calculator")
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ABVCalculatorController") as! ABVCalculatorController
-            self.present(nextViewController, animated:true, completion:nil)
+            self.show(nextViewController, sender: self)
         case "Priming Calculator":
             print("'Ats right, you pressed Priming Calculator")
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PrimingCalculatorController") as! PrimingCalculatorController
-            self.present(nextViewController, animated:true, completion:nil)
+            self.show(nextViewController, sender: self)
         case "IBU Calculator":
             print("'Ats right, you pressed IBU Calculator")
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "IBUCalculatorController") as! IBUCalculatorController
-            self.present(nextViewController, animated:true, completion:nil)
+            self.show(nextViewController, sender: self)
         case "SRM Calculator":
             print("'Ats right, you pressed SRM Calculator")
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SRMCalculatorController") as! SRMCalculatorController
-            self.present(nextViewController, animated:true, completion:nil)
+            self.show(nextViewController, sender: self)
         default:
             print("idk what you pressed, bruv")
         }
@@ -131,7 +131,6 @@ class CustomCell: UICollectionViewCell {
         but.clipsToBounds = true
         but.layer.cornerRadius = 20
         but.backgroundColor = .gray
-        but.layer.cornerRadius = 5
         but.layer.borderWidth = 1
         but.layer.borderColor = UIColor.black.cgColor
         //but.addTarget(self, action: "buttonClicked:", for: .touchUpInside)
