@@ -8,35 +8,25 @@
 
 import UIKit
 
-struct Hop {
-    var name : String
-    var oz : Float
-    var aa : Float
-    var min : Int
-    
-    init(name : String, oz : Float, aa : Float, min : Int) {
-        self.name = name
-        self.oz = oz
-        self.aa = aa
-        self.min = min
-    }
-}
-
 class IBUCalculatorController: UIViewController {
     
-    var hops : [Hop] = []
-    var magnum, kentGoldings, cascade : Hop
+    var hops : Hops = Hops()
     
     required init?(coder aDecoder: NSCoder) {
-        //Magnum Hops
-        magnum = Hop(name : "Magnum", oz : Float(2), aa : Float(13), min : 60)
-        hops.append(magnum)
-        //Kent Golding Hops
-        kentGoldings = Hop(name : "Kent Goldings", oz : Float(1), aa : Float(5.5), min : 30)
-        hops.append(kentGoldings)
-        //Cascade Hops
-        cascade = Hop(name : "Cascade", oz : Float(1), aa : Float(5.3), min : 10)
-        hops.append(cascade)
+        print("Entering test area")
+        
+        let myhopFile = HopAccessor()
+        
+        /*
+        if myhopFile.writeToFile() {
+            print("writeToFile: Success")
+            //print(myhopFile.readFromFile())
+        } else {
+            print("writeToFile: Failure")
+        }
+        */
+        
+        print("Done testing?")
         
         super.init(coder: aDecoder)
     }
@@ -44,7 +34,7 @@ class IBUCalculatorController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Testing. IBUs of Hops: " + String(self.calculateIBUs(hops: self.hops)))
+        //print("Testing... IBUs of Hops: " + String(self.calculateIBUs(hops: self.hops)))
     }
     /*
     * Returns Utlizization percentage for a given amount of time

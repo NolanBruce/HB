@@ -51,7 +51,7 @@ class CalculatorController : UIViewController {
     }
     
     @objc func buttonAction(sender : UIButton!) {
-        print("Oi, you done clicked " + sender.titleLabel!.text! + ", eh")
+        print("Oi, you done clicked " + sender.titleLabel!.text! + ", eh?")
         let storyBoard : UIStoryboard = UIStoryboard(name: "Calculator", bundle:nil)
         
         switch sender.titleLabel!.text {
