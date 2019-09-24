@@ -10,12 +10,10 @@ import UIKit
 
 class IBUCalculatorController: UIViewController {
     
-    var hops : Hops = Hops()
+    var myhopFile = HopAccessor()
     
     required init?(coder aDecoder: NSCoder) {
         print("Entering test area")
-        
-        let myhopFile = HopAccessor()
         
         /*
         if myhopFile.writeToFile() {
@@ -80,6 +78,17 @@ class IBUCalculatorController: UIViewController {
     func calculateIBUs(aHop : Hop) -> Float {
         print("calculateIBUs called on a single Hop")
         return calcAnIBU(aHop : aHop)
+    }
+    
+    @IBAction func onAddHopClick(_ sender: Any) {
+        goToHopsBrowser()
+    }
+    func goToHopsBrowser() {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "HopsBrowser", bundle:nil)
+        
+        print("Going to Hops View")
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HopsBrowserController") as! HopsBrowserController
+        self.show(nextViewController, sender: self)
     }
 
     /*

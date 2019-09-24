@@ -9,12 +9,12 @@
 import Foundation
 
 class JSONHelper {
-    static func writeToFile(file: String, hops: String) -> Bool {
+    static func writeToFile(file: String, json: String) -> Bool {
         print("Entering writeToFile")
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileURL = dir.appendingPathComponent(file)
             do {
-                try hops.write(to: fileURL, atomically: false, encoding: .utf8)
+                try json.write(to: fileURL, atomically: false, encoding: .utf8)
                 return true
             }
             catch {
@@ -30,6 +30,7 @@ class JSONHelper {
         print("Entering readStringFromFile")
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileURL = dir.appendingPathComponent(file)
+            print(fileURL)
             do {
                 let text = try String(contentsOf: fileURL, encoding: .utf8)
                 print(text)
@@ -62,35 +63,4 @@ class JSONHelper {
         }
         return nil
     }
-    
-    /*
-     static func readJSONFromFile(file : String) -> [String: Any] {
-     var tmp: Any?
-     var data: Data
-     var json: [String: Any]
-     print("Reading JSON from file " + file)
-     //if let path = Bundle.main.path(forResource: file, ofType: "json") {
-     if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-     do {
-     //let fileURL = URL(fileURLWithPath: path)
-     let fileURL = dir.appendingPathComponent(file)
-     print("File URL: " + fileURL.absoluteString)
-     // Getting data from JSON file using the file URL
-     data = try Data(contentsOf: fileURL, options: .mappedIfSafe)
-     print("Data: " + String(data: data, encoding: String.Encoding.utf8)!)
-     json = convertToDictionary(text: data as! String)!
-     return json
-     //tmp = try? JSONSerialization.jsonObject(with: data)
-     } catch {
-     //TODO: Add actual exception handling
-     print("You done fucked up somehow")
-     }
-     } else {
-     print("Nah")
-     }
-     //print(tmp!)
-     print("Didn't mean to end up here... Returning nil.")
-     return nil
-     }
-     */
 }

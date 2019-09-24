@@ -142,7 +142,7 @@ class HopAccessor {
                     //Cascade Hops
                     cascade = Hop(name : "Cascade", oz : Float(1), aa : Float(5.3), min : 10)
                     self.hops.append(aHop: cascade)
-                    if JSONHelper.writeToFile(file: self.hopsFile, hops: self.hops.toJSON()) {
+                    if JSONHelper.writeToFile(file: self.hopsFile, json: self.hops.toJSON()) {
                         print("Successfully initialized new hop file.")
                     } else {
                         print("Failed to initialize new hops file.")
@@ -201,7 +201,7 @@ class HopAccessor {
     }
     
     func writeToFile() -> Bool {
-        return JSONHelper.writeToFile(file: self.hopsFile, hops: self.hops.toJSON())
+        return JSONHelper.writeToFile(file: self.hopsFile, json: self.hops.toJSON())
     }
 }
 
